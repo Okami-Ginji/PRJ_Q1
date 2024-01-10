@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrator
  */
-public class GeoServlet extends HttpServlet {
+public class EmojiServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,10 +33,10 @@ public class GeoServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GeoServlet</title>");  
+            out.println("<title>Servlet EmojiServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet GeoServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet EmojiServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -66,63 +66,28 @@ public class GeoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
+        String input = request.getParameter("emo");
+        input = input.replaceAll("<3", "&#129505;");
+        input = input.replaceAll(":-D", "&#128515;");
+        input = input.replaceAll("@@", "&#128565;");
+        input = input.replaceAll("._.", "&#128528;");
+        input = input.replaceAll("-_-", "&#128529;");
+        input = input.replaceAll("T_T", "&#128557;");
+        input = input.replaceAll(":3", "&#129396;");
+        input = input.replaceAll(":v", "&#128535;");
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        String outline = "<p></p>";
-        String imagePath = null;
-        String type = null;
-        try {
-            String choice = request.getParameter("geo");
-            switch(choice) {
-                case "c": {            
-                    imagePath = "https://vcdn-suckhoe.vnecdn.net/2016/10/05/6e851119-b702-46f9-84a6-72528b-4543-9390-1475655691.jpg";
-                    type = "Circle";
-                    break;
-                }
-                case "t": {
-                    imagePath = "https://onthi123.vn/public/uploads/lop-6giua-ki-ii-ket-noi/9_2.png";
-                    type = "Triangle";
-                    break;
-                }
-                case "s": {
-                    imagePath = "https://www.rowsignsandgraphics.com/wp-content/uploads/2021/10/Square_Yellow_Black_Border_solid.jpg";
-                    type = "Square";
-                    break;
-                }
-                case "r": {
-                    imagePath = "https://glosbe.com/fb_img/profilePageAvatar/fW257602_Rectangle_.png.cvrt.jpg";
-                    type = "Rectangle";
-                    break;
-                }
-            }
-            outline = "<h1>"+type+"</h1>" + "<img src='"+ imagePath + "' style=\"width: 300px\">";
-        } catch (Exception e) {
-            imagePath = null;
-        }
-       
-        
-        out.println("<html><body>");
-        out.println(" <form name=\"geo1\" action=\"GeoServlet\" method=\"post\">\n" +
-"                <table>\n" +
-"                    <tr>\n" +
-"                        <a>Please choose your favourite geometry: </a>\n" +
-"                    </tr>\n" +
-"                    <tr>\n" +
-"                        <td></td><td><select name=\"geo\">\n" +
-"                                <option value=\"c\">Circle</option>\n" +
-"                                <option value=\"t\">Triangle</option>\n" +
-"                                <option value=\"s\">Square</option>\n" +
-"                                <option value=\"r\">Rectangle</option>\n" +
-"                            </select></td>\n" +
-"                    </tr>\n" +
-"                   <tr>\n" +
-"                        <td></td><td><input type=\"submit\" value=\"Choose\"/></td>\n" +
-"                    </tr>\n" +
-"                </table>\n" +
-"            </form>");
-        out.println(outline);
-        out.println("<br>");
-        out.println("</body></html>");
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>Sample Page</title>");
+        out.println("<link rel='stylesheet' type='text/css' href='styleindex.css'>"); // Liên kết file CSS
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h2>Your message:</h2>");       
+        out.println("<input class=\"box\" type=\"text\" name=\"emo\" value=\""+ input + "\"/>");
+        out.println("</body>");
+        out.println("</html>");
         
     }
 

@@ -1,0 +1,32 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jan 10, 2024, 3:58:26 PM
+    Author     : Administrator
+*/
+.td{
+    color: red;
+}
+
+.a{
+    background-color: red;
+}
+
+.th{
+    width: 45px;
+    height: 30px;
+    background-color: rgb(2, 123, 255);
+    border: none;
+    color: white;
+    border-radius: 5px; 
+}
+.mess{
+    width: 500%;   
+}
+
+.box{
+    width: 80%;
+    height: 40px;
+}

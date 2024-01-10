@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Administrator
  */
 public class CalServlet extends HttpServlet {
+    private  String op = null;
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -73,7 +74,7 @@ public class CalServlet extends HttpServlet {
             double result = 0;
             firstS = request.getParameter("first");
             secondS = request.getParameter("second");
-            String op = request.getParameter("operator");
+            op = request.getParameter("operator");
             int first = Integer.parseInt(firstS);
             int second = Integer.parseInt(secondS);
             switch(op) {
